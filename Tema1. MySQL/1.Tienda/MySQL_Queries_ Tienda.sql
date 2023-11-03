@@ -1,0 +1,25 @@
+SELECT `nombre`, `precio` FROM `producto`;
+SELECT * FROM `producto`;
+SELECT `precio` AS `precio_euros` FROM `producto`;
+SELECT nombre, precio, ROUND(precio * 1.18, 2) AS precio_usd FROM producto;
+SELECT nombre AS nom_de_producto, precio as euros, ROUND(precio * 1.18, 2) AS dòlars_nord_americans FROM producto; 
+SELECT UPPER(nombre) AS nom_de_producto, precio as euros, ROUND(precio * 1.18, 2) AS dòlars_nord_americans FROM producto;
+SELECT LOWER(nombre) AS nom_de_producto, precio as euros, ROUND(precio * 1.18, 2) AS dòlars_nord_americans FROM producto; 
+SELECT nombre, UPPER(SUBSTRING(nombre FROM 1 FOR 2)) AS dos_primers_caracteres_mayuscula FROM fabricante;
+SELECT nombre, ROUND(precio) FROM producto;
+SELECT nombre, TRUNCATE(precio, 0) FROM producto;
+SELECT DISTINCT codigo_fabricante FROM producto; 
+/*SELECT DISTINCT codigo_fabricante FROM producto; eliminant codi repetit; */
+SELECT nombre FROM fabricante ORDER BY nombre ASC; 
+SELECT nombre FROM fabricante ORDER BY nombre DESC;
+SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;
+SELECT * FROM fabricante LIMIT 5;	
+SELECT * FROM fabricante LIMIT 3,2;
+SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;
+SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
+SELECT nombre FROM producto WHERE codigo_fabricante = 2;
+SELECT producto.nombre, producto.precio, fabricante.nombre AS nombre_fabricante FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo;
+SELECT producto.nombre, producto.precio, fabricante.nombre AS nombre_fabricante FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo ORDER BY nombre_fabricante ASC;
+SELECT producto.codigo, producto.nombre AS nombre_producto, producto.codigo_fabricante, fabricante.nombre AS nombre_fabricante FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo;
+SELECT producto.nombre, producto.precio, fabricante.nombre AS nombre_fabricante FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo ORDER BY producto.precio ASC LIMIT 1; 
+SELECT producto.nombre, producto.precio, fabricante.nombre AS nombre_fabricante FROM producto JOIN fabricante ON producto.codigo_fabricante = fabricante.codigo ORDER BY producto.precio DESC LIMIT 1; 
