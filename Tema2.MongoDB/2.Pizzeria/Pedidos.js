@@ -1,0 +1,6 @@
+
+db.createCollection( 'Pedidos', {validator: {$jsonSchema: {bsonType: 'object',title:'Pedidos',required: [         'Fecha_Hora',          'Repartido',          'Producto',          'Precio_Total',          'Tienda',          'Repartidor',          'Cliente'],properties: {Fecha_Hora: {bsonType: 'date'},Repartido: {bsonType: 'bool'},Producto: {bsonType: 'array',items: {
+title:'object',required: [         'Cantidad',          'Id_Producto'],properties: {Cantidad: {bsonType: 'int'},Id_Producto: {bsonType: 'int'}}}},Precio_Total: {bsonType: 'decimal'},Tienda: {bsonType: 'int'},Repartidor: {bsonType: 'object',
+title:'object',required: [         'Nombre',          'Apellido'],properties: {Nombre: {bsonType: 'string'},Apellido: {bsonType: 'string'}}},Cliente: {bsonType: 'array',items: {
+title:'object',required: [         'Nombre',          'Apellido',          'Direccion',          'Telefono'],properties: {Nombre: {bsonType: 'string'},Apellido: {bsonType: 'string'},Direccion: {bsonType: 'array',items: {
+title:'object',required: [         'Calle',          'Numero',          'Piso',          'Ciudad',          'Codigo_Postal'],properties: {Calle: {bsonType: 'string'},Numero: {bsonType: 'int'},Piso: {bsonType: 'int'},Ciudad: {bsonType: 'string'},Codigo_Postal: {bsonType: 'int'}}}},Telefono: {bsonType: 'int'}}}}}         }      }});  

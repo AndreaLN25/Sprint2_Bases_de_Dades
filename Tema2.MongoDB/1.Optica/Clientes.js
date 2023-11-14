@@ -1,0 +1,3 @@
+
+db.createCollection( 'Clientes', {validator: {$jsonSchema: {bsonType: 'object',title:'Clientes',required: [         'Direccion',          'Telefono',          'Mail',          'Fecha_Registro',          'Recomendado_Por'],properties: {Nombre: {bsonType: 'string'},Direccion: {bsonType: 'object',
+title:'object',required: [         'Calle',          'Numero',          'Piso',          'Puerta',          'CodigoPostal',          'Ciudad'],properties: {Calle: {bsonType: 'string'},Numero: {bsonType: 'int'},Piso: {bsonType: 'int'},Puerta: {bsonType: 'int'},CodigoPostal: {bsonType: 'int'},Ciudad: {bsonType: 'string'}}},Telefono: {bsonType: 'int'},Mail: {bsonType: 'string'},Fecha_Registro: {bsonType: 'timestamp'},Recomendado_Por: {bsonType: 'int'}}         }      }});  
