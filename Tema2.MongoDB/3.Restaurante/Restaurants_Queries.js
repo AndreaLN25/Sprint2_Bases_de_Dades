@@ -18,11 +18,11 @@ db.Restaurantes.find({'grades.score' : {$gt: 90}})
 //9.Escriu una consulta per trobar els restaurants que tenen un score més gran que 80 però menys que 100.
 db.Restaurantes.find({'grades.score': {$gt: 80, $lt: 100 } })
 //10.Escriu una consulta per trobar els restaurants que estan situats en una longitud inferior a -95.754168.
-db.Restaurantes.find({'adress.coord': {$lt:-95.754168}})
+db.Restaurantes.find({'adress.coord.0': {$lt:-95.754168}})
 //11.Escriu una consulta de MongoDB per a trobar els restaurants que no cuinen menjar 'American ' i tenen algun score superior a 70 i latitud inferior a -65.754168.
-db.Restaurantes.find({cuisine: {$ne: 'American' }, "grades.score": {$gt: 70 }, "address.coord": {$lt: -65.754168 }})
+db.Restaurantes.find({cuisine: {$ne: 'American' }, "grades.score": {$gt: 70 }, "address.coord.1": {$lt: -65.754168 }})
 //12.Escriu una consulta per trobar els restaurants que no preparen menjar 'American' i tenen algun score superior a 70 i que, a més, es localitzen en longituds inferiors a -65.754168. Nota: Fes aquesta consulta sense utilitzar operador $and.
-db.Restaurantes.find({ cuisine: {$ne: 'American' }, "grades.score": {$gt: 70 }, "address.coord": {$lt: -65.754168 } })
+db.Restaurantes.find({ cuisine: {$ne: 'American' }, "grades.score": {$gt: 70 }, "address.coord.0": {$lt: -65.754168 } }) 
 //13.Escriu una consulta per trobar els restaurants que no preparen menjar 'American ', tenen alguna nota 'A' i no pertanyen a Brooklyn. S'ha de mostrar el document segons la cuisine en ordre descendent.
 db.Restaurantes.find({cuisine: {$ne:'American'}, grades:{$elemMatch: {grade: 'A'}}, borough:{ $ne: 'Brooklyn'}}).sort({cuisine:-1})
 //14.Escriu una consulta per trobar el restaurant_id, name, borough i cuisine per a aquells restaurants que contenen 'Wil' en les tres primeres lletres en el seu nom.
