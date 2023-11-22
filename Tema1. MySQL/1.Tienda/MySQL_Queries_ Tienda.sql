@@ -8,8 +8,8 @@ SELECT LOWER(nombre) AS nom_de_producto, precio as euros, ROUND(precio * 1.18, 2
 SELECT nombre, UPPER(SUBSTRING(nombre FROM 1 FOR 2)) AS dos_primers_caracteres_mayuscula FROM fabricante;
 SELECT nombre, ROUND(precio) FROM producto;
 SELECT nombre, TRUNCATE(precio, 0) FROM producto;
+SELECT codigo_fabricante FROM producto; 
 SELECT DISTINCT codigo_fabricante FROM producto; 
-/*SELECT DISTINCT codigo_fabricante FROM producto; eliminant codi repetit; */
 SELECT nombre FROM fabricante ORDER BY nombre ASC; 
 SELECT nombre FROM fabricante ORDER BY nombre DESC;
 SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;
