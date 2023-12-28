@@ -61,7 +61,8 @@ CREATE TABLE IF NOT EXISTS `Optica_EER`.`Gafas` (
   `Graduacio_Dret_Ulleres` FLOAT NOT NULL,
   `Tipo_Montura` ENUM('Flotant', 'Pasta', 'Metálica') NOT NULL,
   `Color_Montura` VARCHAR(45) NOT NULL,
-  `Color_Cristal` VARCHAR(45) NOT NULL,
+  `Color_Cristal_Izq` VARCHAR(45) NOT NULL,
+  `Color_Cristal_Der` VARCHAR(45) NOT NULL,
   `Precio_Gafa` FLOAT NOT NULL,
   `Marca_Gafas_Id_Marca` INT NOT NULL,
   PRIMARY KEY (`Id_Gafas`),
@@ -75,16 +76,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Optica_EER`.`Recomendado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Optica_EER`.`Recomendado` (
-  `Id_Recomendado` INT NOT NULL AUTO_INCREMENT,
-  `Nombre_Recomendado` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Id_Recomendado`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `Optica_EER`.`Cliente`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Optica_EER`.`Cliente` (
@@ -94,13 +85,11 @@ CREATE TABLE IF NOT EXISTS `Optica_EER`.`Cliente` (
   `Telefono_Cliente` INT NOT NULL,
   `Correo_Electronico_Cliente` VARCHAR(45) NOT NULL,
   `Data_Registro_Cliente` DATE NOT NULL,
-  `Recomendado_Por` VARCHAR(45) NOT NULL,
-  `Recomendado_Id_Recomendado` INT NOT NULL,
+  `Cliente_que_Recomendo_Id` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Id_Cliente`),
-  INDEX `fk_Cliente_Recomendado1_idx` (`Recomendado_Id_Recomendado` ASC) VISIBLE,
-  CONSTRAINT `fk_Cliente_Recomendado1`
-    FOREIGN KEY (`Recomendado_Id_Recomendado`)
-    REFERENCES `Optica_EER`.`Recomendado` (`Id_Recomendado`)
+  CONSTRAINT `fk_Cliente_Recomendado`
+    FOREIGN KEY ()
+    REFERENCES `Optica_EER`.`Cliente` ()
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
